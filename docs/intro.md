@@ -2,46 +2,82 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# Как начать?
 
-Let's discover **Docusaurus in less than 5 minutes**.
+### Пререквизиты
+1. Linux
+2. Go 1.20
+3. Криптопро 5.0
+4. Tmux
+5. Git
 
-## Getting Started
+### Как собрать?
 
-Get started by **creating a new site**.
-
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
-
-### What you'll need
-
-- [Node.js](https://nodejs.org/en/download/) version 16.14 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
-
-## Generate a new site
-
-Generate a new Docusaurus site using the **classic template**.
-
-The classic template will automatically be added to your project after you run the command:
-
+1. Клонировать репозиторий
 ```bash
-npm init docusaurus@latest my-website classic
+git clone https://github.com/MIRChain/MIR.git
 ```
-
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
-
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
+2. Запустить сборку бинарных файлов
 ```bash
-cd my-website
-npm run start
+make all
 ```
+Собранные файлы будут находиться в папке `MIR/build/bin`
 
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
+### Как присоединится к публичным сетям?
 
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
+Запустить `mir` со следующими флагами для синхронизации с mainnet/testnet сетью
 
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+ - для testnet:
+ 
+ ```bash
+./mir --crypto gost \
+    --gostcurve id-GostR3410-2001-CryptoPro-A-ParamSet \
+    --datadir node1 \
+    --identity [твой_идентификатор] \
+    --syncmode full \
+    --gcmode=archive \
+    --port 30312 \
+    --soyuz \
+    --ethstats node1:soyuz@194.87.80.101:3000 \
+    --ws \
+    --ws.addr 0.0.0.0 \
+    --ws.port 8546 \
+    --ws.origins "*" \
+    --http \
+    --http.addr 0.0.0.0 \
+    --http.port 8545 \
+    --http.corsdomain "*" \
+    --http.api personal,eth,net,web3,txpool,miner,admin \
+    --verbosity 4
+ ```
+
+ Если присоединение к тестовой сети пройдет удачно то узел появится в списке на сайте мониторинга:
+
+ http://194.87.80.101:3000
+
+ - для mainnet:
+ ```bash
+ ./mir --crypto gost \
+    --gostcurve id-GostR3410-2001-CryptoPro-A-ParamSet \
+    --datadir node1 \
+    --identity [твой_идентификатор] \
+    --syncmode full \
+    --gcmode=archive \
+    --port 30312 \
+    --mainnet \
+    --ethstats node1:buran@194.87.253.126:3000 \
+    --ws \
+    --ws.addr 0.0.0.0 \
+    --ws.port 8546 \
+    --ws.origins "*" \
+    --http \
+    --http.addr 0.0.0.0 \
+    --http.port 8545 \
+    --http.corsdomain "*" \
+    --http.api personal,eth,net,web3,txpool,miner,admin \
+    --verbosity 4
+ ```
+
+  Если присоединение к основной сети пройдет удачно то узел появится в списке на сайте мониторинга:
+
+  http://194.87.253.126:3000

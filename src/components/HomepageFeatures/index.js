@@ -4,32 +4,36 @@ import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    title: 'Easy to Use',
+    title: 'Возможность выбора базовой криптографии используемой при инициализации сети: ',
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        GOST 34.10 (any 256 bit curve) + 34.11 SteebogHash <br/>
+        CyptoProGOST + 34.11 SteebogHash <br/>
+        NIST Secp256k1 + SHA3 <br/>
+        NIST PostQuantum (work in progress) <br/>
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
+    title: 'Возможность выбора различных типов консенсуса:',
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+      Proof-of-Work <br/>
+      Proof-of-Authority <br/>
+      Raft <br/>
+      iBFT <br/>
+      QBFT  <br/>
       </>
     ),
   },
   {
-    title: 'Powered by React',
+    title: 'Полная совместимость с цифровой подписью Криптопро',
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Мэйннет и тестнет сети используют криптографию ГОСТ 34.10 + 34.11 совместимую с КриптпоПро и другими сертифицированными провайдерами
       </>
     ),
   },
@@ -38,9 +42,9 @@ const FeatureList = [
 function Feature({Svg, title, description}) {
   return (
     <div className={clsx('col col--4')}>
-      <div className="text--center">
+      {/* <div className="text--center">
         <Svg className={styles.featureSvg} role="img" />
-      </div>
+      </div> */}
       <div className="text--center padding-horiz--md">
         <h3>{title}</h3>
         <p>{description}</p>

@@ -2,56 +2,39 @@
 sidebar_position: 2
 ---
 
-# Create a Document
+# Создать свою сеть ГОСТ
 
-Documents are **groups of pages** connected through:
+####  Примеры разворачивания сети c различными типами консенсуса и криптографии (3 майнера)
+- Raft + ГОСТ криптография: `devchain/raft_gost`
+- Raft + NIST криптография: `devchain/raft`
+- Proof-of-Work + ГОСТ криптография: `devchain/pow_gost`
+-  Proof-of-Work + NIST криптография: `devchain/pow`
+- Proof-of-Authority (Clique) + ГОСТ криптография: `devchain/clique_gost`
+-  Proof-of-Authority (Clique) + NIST криптография: `devchain/clique`
 
-- a **sidebar**
-- **previous/next navigation**
-- **versioning**
+#### Перед запуском сети необходимо ее инициализировать:
 
-## Create your first Doc
-
-Create a Markdown file at `docs/hello.md`:
-
-```md title="docs/hello.md"
-# Hello
-
-This is my **first Docusaurus document**!
+```sh
+./init_chain.sh
 ```
 
-A new document is now available at [http://localhost:3000/docs/hello](http://localhost:3000/docs/hello).
-
-## Configure the Sidebar
-
-Docusaurus automatically **creates a sidebar** from the `docs` folder.
-
-Add metadata to customize the sidebar label and position:
-
-```md title="docs/hello.md" {1-4}
----
-sidebar_label: 'Hi!'
-sidebar_position: 3
----
-
-# Hello
-
-This is my **first Docusaurus document**!
+#### Запустить 3 майнера + бутнода в Tmux:
+```sh
+./run_chain.sh
 ```
-
-It is also possible to create your sidebar explicitly in `sidebars.js`:
-
-```js title="sidebars.js"
-module.exports = {
-  tutorialSidebar: [
-    'intro',
-    // highlight-next-line
-    'hello',
-    {
-      type: 'category',
-      label: 'Tutorial',
-      items: ['tutorial-basics/create-a-document'],
-    },
-  ],
-};
+Подключаться к Tmux окну можно командой:
+```sh
+tmux a -t node1
+```
+Проверить открытые окна Tmux
+```sh
+tmux ls
+```
+#### Отсановить сеть:
+```sh
+./kill_chain.sh
+```
+#### Очистить бд узлов сети:
+```sh
+./clean.sh
 ```
