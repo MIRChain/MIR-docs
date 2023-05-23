@@ -4,19 +4,20 @@ import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    title: 'Возможность выбора базовой криптографии используемой при инициализации сети: ',
+    title: 'Ability to chose crypto type at chain initialization: ',
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        GOST 34.10 (any 256 bit curve) + 34.11 SteebogHash <br/>
-        CyptoProGOST + 34.11 SteebogHash <br/>
-        NIST Secp256k1 + SHA3 <br/>
-        NIST PostQuantum (work in progress) <br/>
+        - GOST 34.10 (any 256 bit curve) + 34.11 SteebogHash (compatible with CryptoPro provider) <br/>
+        - NIST Secp256k1 + SHA3 <br/>
+        - NIST PostQuantum (work in progress) <br/>
+        <br/><br/>
+        TestNet GOST 34.10 + 34.11 SteebogHash is up and running. Nodes at http://194.87.80.101:3000/
       </>
     ),
   },
   {
-    title: 'Возможность выбора различных типов консенсуса:',
+    title: 'Ability to chose consensus:',
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
@@ -25,15 +26,18 @@ const FeatureList = [
       Raft <br/>
       iBFT <br/>
       QBFT  <br/>
+      DPOS* <br/>
+      POS* <br/>
+      Tendermint* <br/> 
       </>
     ),
   },
   {
-    title: 'Полная совместимость с цифровой подписью Криптопро',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: 'UI for network and node management',
     description: (
       <>
-        Мэйннет и тестнет сети используют криптографию ГОСТ 34.10 + 34.11 совместимую с КриптпоПро и другими сертифицированными провайдерами
+      - Easy to use UI for node management <br/> 
+      - Ability to configure a new custom genesis from UI 
       </>
     ),
   },

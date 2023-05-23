@@ -6,8 +6,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'MIR блокчейн',
-  tagline: 'Блокчейн с возможностью выбора криптографии включая ГОСТ и NIST требования',
+  title: 'MIR: modular blockchain',
+  tagline: 'Blockchain system with multiple cryptographic standards and consensuses',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -74,7 +74,7 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
-            label: 'Руководство пользователя',
+            label: 'Manual',
           },
           // {to: '/blog', label: 'Blog', position: 'left'},
           {
@@ -91,7 +91,7 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Руководство пользователя',
+                label: 'Manual',
                 to: '/docs/intro',
               },
             ],
